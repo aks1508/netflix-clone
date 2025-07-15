@@ -108,6 +108,7 @@ const Payment = () => {
             maxLength="19"
             required
           />
+          <p>*Use a card number ending with 999 for succesful payment</p>
         </div>
         <div className="form-row">
           <div className="form-group">
