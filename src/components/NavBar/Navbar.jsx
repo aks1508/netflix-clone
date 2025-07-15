@@ -7,17 +7,17 @@ import profile_img from "../../assets/profile_img.png";
 import caret_icon from "../../assets/caret_icon.svg";
 import { logout } from "../../firebase";
 
-const Navbar = () => {
+const Navbar = ({ userSubscription, isSubscriptionLoading }) => {
   const navRef = useRef();
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (window.scrollY >= 80) {
-  //       navRef.current.classList.add("nav-dark");
-  //     } else {
-  //       navRef.current.classList.remove("nav-dark");
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 95) {
+        navRef.current.classList.add("nav-dark");
+      } else {
+        navRef.current.classList.remove("nav-dark");
+      }
+    });
+  }, []);
 
   return (
     <div ref={navRef} className="navbar">
@@ -34,6 +34,15 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
         <img src={search} alt="" className="icons" />
+        {!isSubscriptionLoading &&
+        userSubscription?.status === "active" &&
+        userSubscription?.planName ? (
+          <p className="current-plan">{userSubscription.planName}</p>
+        ) : (
+          !isSubscriptionLoading && (
+            <p className="current-plan">No Active Plan</p>
+          )
+        )}
         <p>Children</p>
         <img src={bell_icon} alt="" className="icons" />
         <div className="navbar-profile">

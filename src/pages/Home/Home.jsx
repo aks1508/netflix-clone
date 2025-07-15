@@ -1,25 +1,34 @@
 import React from "react";
 import "./Home.css";
 import Navbar from "../../components/NavBar/Navbar";
-import hero_banner from "../../assets/hero_banner.jpg";
-import hero_title from "../../assets/hero_title.png";
+import hero_banner from "../../assets/squid_game.mp4";
+import hero_title from "../../assets/sg_image.png";
 import play_icon from "../../assets/play_icon.png";
 import info_icon from "../../assets/info_icon.png";
 import TitleCards from "../../components/TitleCards/TitleCards";
 import Footer from "../../components/Footer/Footer";
 
-const Home = () => {
+const Home = ({ userSubscription, isSubscriptionLoading }) => {
   return (
     <div className="home">
-      <Navbar />
+      <Navbar
+        userSubscription={userSubscription}
+        isSubscriptionLoading={isSubscriptionLoading}
+      />
       <div className="hero">
-        <img src={hero_banner} alt="" className="banner-img" />
+        <video
+          className="banner-img"
+          src={hero_banner}
+          autoPlay
+          muted
+          loop
+        ></video>
         <div className="hero-caption">
           <img src={hero_title} alt="" />
           <p>
-            Discovering his ties ot a secret ancient order, a young man living
-            in modern istanbul embarks on quest to save the city from an
-            immortal enemy
+            Winning six Emmys, this world-renowned survival thriller follows
+            desperate players competing in deadly children's games for
+            life-changing sums of money.
           </p>
           <div className="hero-btns">
             <button className="btn">

@@ -84,6 +84,16 @@
   background: #141414;
 }
 
+.navbar-right .current-plan {
+  background-color: #e50914;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 @media (max-width: 800px) {
   .navbar {
     padding: 20px 4%;
@@ -94,6 +104,10 @@
   .navbar img {
     height: 25px;
   }
+  .navbar-right .current-plan {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 500px) {
@@ -102,5 +116,9 @@
   }
   .navbar-right {
     gap: 10px;
+  }
+  .navbar-right .current-plan {
+    padding: 2px 5px;
+    font-size: 0.65rem;
   }
 }
